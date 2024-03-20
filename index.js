@@ -50,6 +50,8 @@ function wait(t) {
 }
 
 async function delayedLoop() {
+  Laya.stage.on("wait", 0);
+  Laya.stage.on("wait", 0);
   await wait(1000);
   setInterval(() => {
     const d = window.document.querySelector("SELECT").options;
