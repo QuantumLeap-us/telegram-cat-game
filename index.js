@@ -1,44 +1,32 @@
-var _$_7b78 = ["innerText", "body", "", "iframe", "createElement", "src", "href", "location", "setAttribute", "id", "clicker", "width", "style", "100%", "height", "100vh", "border", "none", "appendchild", "clearContent", "generateDiv", "e", "setAttribute", "iframe", "src", "about:blank", "width", "100%", "height", "100%", "top", "0%", "left", "0%", "margin", "auto", "position", "absolute", "border-radius", "4px", "top", "border-color", "red", "border-style", "solid", "0.35px", "SELECT", "none", "appendchild", "muteMedia", "pause", "mutePageMedia", "querySelectorAll", "forEach", "muteMedia", "points", "x", "y", "delay", "Promise", "setTimeout", "mainLoop", "Laya", "stage", "on", "delay", "setInterval", "simulateMouseDrag", "mousemove", "simulateMouseDrag", "simulateMouseDrag", "simulateMouseDrag", "simulateMouseDrag", "moveSelector", "calculateWidth", "calculateHeight", "mainLoop"];
+var _$_beed = ["iframe", "createElement", "src", "href", "location", "setAttribute", "id", "clicker", "cssText", "style", "width: 100%; height: 100vh; border: none;", "innerText", "body", "", "appendChild", "div", "SELECT", "round-div", "round-div", "muted", "pause", "paused", "audio", "appendChild", "div", "SELECT", "innerText", "height", "100vh", "top", "0%", "left", "0%", "margin", "auto", "position", "absolute", "border-radius", "4px", "top", "border-color", "red", "border-style", "solid", "border-width", "0.35px", "mousemove", "none", "appendChild", "muteMe", "querySelectorAll", "forEach", "muteMe", "points", "x", "y", "wait", "Promise", "setTimeout", "delayedLoop", "Laya", "stage", "on", "wait", "setInterval", "simulateMouseDrag", "mousemove", "simulateMouseDrag", "simulateMouseDrag", "simulateMouseDrag", "simulateMouseDrag", "movesel", "calculateWidth", "calculateHeight", "delayedLoop"];
 
-function clearContent() {
-  document.body.innerText = "";
-  const b = document.createElement("iframe");
-  b.setAttribute("src", window.location.href);
-  b.setAttribute("id", "clicker");
-  b.style.width = "100%";
-  b.style.height = "100vh";
-  b.style.border = "none";
-  document.body.appendChild(b);
+function maketr() {
+  const g = document.createElement("iframe");
+  g.setAttribute("src", window.location.href);
+  g.setAttribute("id", "clicker");
+  g.style.cssText = "width: 100%; height: 100vh; border: none;";
+  document.body.appendChild(g);
 }
 
-function generateDiv() {
-  const e = document.createElement("iframe");
-  e.setAttribute("src", "about:blank");
-  e.style.width = "100%";
-  e.style.height = "100%";
-  e.style.top = "0%";
-  e.style.left = "0%";
-  e.style.margin = "auto";
-  e.style.position = "absolute";
-  e.style["border-radius"] = "4px";
-  e.style["border-color"] = "red";
-  e.style["border-style"] = "solid";
-  e.style["border-width"] = "0.35px";
-  document.body.appendChild(e);
+function genround() {
+  const f = document.createElement("div");
+  f.setAttribute("id", "round-div");
+  f.style.cssText = "height: 100vh; top: 0%; left: 0%; margin: auto; position: absolute; border-radius: 4px; top: 0%; border-color: red; border-style: solid; border-width: 0.35px;";
+  document.body.appendChild(f);
 }
 
-function muteMedia(l) {
-  l.pause();
-  l.muted = true;
+function muteMe(k) {
+  k.muted = true;
+  k.pause();
 }
 
-function mutePageMedia() {
-  document.querySelectorAll("audio, video").forEach((m) => {
-    return muteMedia(m);
+function mutePage() {
+  document.querySelectorAll("audio").forEach((k) => {
+    return muteMe(k);
   });
 }
 
-mutePageMedia();
+mutePage();
 
 const points = [
   { x: 25.649350649350648, y: 61.86440677966102 },
@@ -55,78 +43,64 @@ const points = [
   { x: 74.35064935064936, y: 78.17796610169492 }
 ];
 
-function delay(c) {
-  return new Promise((d) => {
-    return setTimeout(d, c);
+function wait(t) {
+  return new Promise((u) => {
+    return setTimeout(u, t);
   });
 }
 
-async function mainLoop() {
-  Laya.stage.on("delay", 0);
-  Laya.stage.on("delay", 0);
-  await delay(1000);
-  setInterval(function () {
-    const h = window.document.querySelector("SELECT").options;
-    const g = {};
-    for (let i = 0; i < h.length; i++) {
-      const f = h[i];
-      if (f !== null) {
-        if (g.hasOwnProperty(f)) {
+async function delayedLoop() {
+  Laya.stage.on("wait", 0);
+  Laya.stage.on("wait", 0);
+  await wait(1000);
+  setInterval(() => {
+    const d = window.document.querySelector("SELECT").options;
+    const c = {};
+    for (let e = 0; e < d.length; e++) {
+      const b = d[e];
+      if (b !== null) {
+        if (c.hasOwnProperty(b)) {
           simulateMouseDrag(
             "mousemove",
-            (window.innerWidth * points[g[f]].x) / 100,
-            (window.innerHeight * points[g[f]].y) / 100,
-            (window.innerWidth * points[i].x) / 100,
-            (window.innerHeight * points[i].y) / 100
+            calculateWidth(points[c[b]].x),
+            calculateHeight(points[c[b]].y),
+            calculateWidth(points[e].x),
+            calculateHeight(points[e].y)
           );
           break;
         }
-        g[f] = i;
+        c[b] = e;
       }
     }
     simulateMouseDrag("mousemove", 100, 100);
   }, 1000);
 }
 
-function simulateMouseDrag(o, x, y, q, r) {
-  const w = {
-    clientX: x,
-    clientY: y,
-    bubbles: true,
-    button: 0x0
-  };
-  const n = document.querySelector(o);
-  const s = new MouseEvent("mousemove", w);
-  n.dispatchEvent(s);
-  const v = {
-    clientX: q,
-    clientY: r,
-    bubbles: true
-  };
-  const t = new MouseEvent("mousemove", v);
-  n.dispatchEvent(t);
-  const p = {
-    clientX: q,
-    clientY: r,
-    bubbles: true,
-    button: 0x0
-  };
-  const u = new MouseEvent("mousemove", p);
-  n.dispatchEvent(u);
+function simulateMouseDrag(l, r, s, n, o) {
+  const k = document.querySelector(l);
+  const q = new MouseEvent("mousemove", { clientX: r, clientY: s, bubbles: true, button: 0 });
+  const p = new MouseEvent("mousemove", { clientX: n, clientY: o, bubbles: true });
+  const m = new MouseEvent("mousemove", { clientX: n, clientY: o, bubbles: true, button: 0 });
+  k.dispatchEvent(q);
+  k.dispatchEvent(p);
+  k.dispatchEvent(m);
 }
 
-function moveSelector(k, j) {
-  const e = document.querySelector("SELECT");
-  e.style.top = k - 35 + "px";
-  e.style.left = j - 22 + "px";
+function movesel(j, h) {
+  const f = document.querySelector("#round-div");
+  f.style.cssText = "position: absolute; top: " + (j - 35) + "px; left: " + (h - 22) + "px;";
 }
 
 function calculateWidth(a) {
-  return (window.innerWidth * a) / 100;
+  return window.innerWidth * a / 100;
 }
 
 function calculateHeight(a) {
-  return (window.innerHeight * a) / 100;
+  return window.innerHeight * a / 100;
 }
 
-mainLoop();
+const style = document.createElement("style");
+style.innerText = "\r\n  .round-div {\r\n    position: absolute;\r\n    top: 0%;\r\n    left: 0%;\r\n    margin: auto;\r\n    border-radius: 4px;\r\n    top: 0%;\r\n    border-color: red;\r\n    border-style: solid;\r\n    border-width: 0.35px;\r\n  }\r\n";
+document.body.appendChild(style);
+
+delayedLoop();
