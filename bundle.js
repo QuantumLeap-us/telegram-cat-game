@@ -5112,6 +5112,9 @@
             this.m_freeEndTime = +S.exdata.speedFreeTime,
             this.m_CEndTime = +S.exdata.SpeedChainTime,
             this.m_spineRock = null
+            this.onClickFree()
+            console.log('Auto Boot Speed')
+            this.onDestroy()
         }
         onAwake() {
             super.onAwake(),
@@ -6477,6 +6480,9 @@
             this.m_img_Wait.visible = !0,
             this.ani1.play(),
             T.ChainFlag = !0) : T.ChainFlag = !1)
+            this.onClickFree()
+            console.load('Auto Event')
+            this.doClose()
         }
         onClickFree() {
             S.reqGetRandomEventAward(De.free).then(e=>{
@@ -7624,6 +7630,8 @@
             // for (let index = 0; index < 12; index++) {
             //     this.createIndexCat(index,100)
             // }
+            // const _b = new pt
+            u(pt)
         }
         checkAuto() {
             let s = this.getSumIndex();
@@ -8870,6 +8878,7 @@
             ),
             this.addChild(this.m_view_Lv),
             this.m_img_Clip.rotation = s % 2 == 0 ? Math.randRange(-20, 5) : Math.randRange(5, 20)
+        
         }
         onClickFree() {
             N.cat.reqCreate(this.dataSource, !1, !0).then(()=>{
