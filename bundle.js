@@ -7009,8 +7009,8 @@
             u(pt)
         }
         updateSpeed() {
-            //this.speedTicker && this.speedTicker.dispose(),
-            //N.cat.checkIsBoost() ? (this.speedTicker = at.create(1e3 * S.boostEndTime, 1e3, this.m_txt_Time),
+            this.speedTicker && this.speedTicker.dispose(),
+            N.cat.checkIsBoost() ? (this.speedTicker = at.create(1e3 * S.boostEndTime, 1e3, this.m_txt_Time),
             this.speedTicker.start(),
             this.speedTicker.onEnd = ()=>{
                 N.event(m.UPDATE_SPEED),
