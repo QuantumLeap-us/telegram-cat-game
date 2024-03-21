@@ -5112,8 +5112,9 @@
             this.m_freeEndTime = +S.exdata.speedFreeTime,
             this.m_CEndTime = +S.exdata.SpeedChainTime,
             this.m_spineRock = null
-            this.onClickFree()
             console.log('Auto Boot Speed')
+            this.onClickFree()
+            
             this.onDestroy()
         }
         onAwake() {
@@ -6450,6 +6451,10 @@
             this.m_backFromChain = !1,
             this.m_spineStr = e,
             this.m_backFromChain = t
+            console.log('Auto Event')
+            this.onClickFree()
+            
+            this.doClose()
         }
         onAwake() {
             super.onAwake();
@@ -6480,9 +6485,7 @@
             this.m_img_Wait.visible = !0,
             this.ani1.play(),
             T.ChainFlag = !0) : T.ChainFlag = !1)
-            this.onClickFree()
-            console.load('Auto Event')
-            this.doClose()
+           
         }
         onClickFree() {
             S.reqGetRandomEventAward(De.free).then(e=>{
@@ -6788,8 +6791,7 @@
                                 this.m_box_Con.addChild(t),
                                 (this.m_spineRandom = t).size(200, 300),
                                 t.pivot(100, 250),
-                                t.on(Laya.Event.CLICK, this, ()=>{
-                                    this.clearRandomSpine(),
+                                this.clearRandomSpine(),
                                     Laya.timer.clear(this, this.checkShowRandomEvent),
                                     u(T, {
                                         params: [e]
@@ -6800,9 +6802,7 @@
                                         }
                                         )
                                     }
-                                    )
-                                }
-                                ),
+                                    ),
                                 this.doRandomSpineAni(),
                                 Laya.timer.once(1e4, this, ()=>{
                                     me(Tt, {
@@ -7617,6 +7617,7 @@
             // this.m_img_AutoRed.visible = !1,
             // !N.cat.buyAuto)
             //     return u(At);
+            console.log('Auto Click Every 1 min')
             N.cat.isAuto = !N.cat.isAuto,
             N.cat.isAuto ? (this.ani8.play(0, !0),
             this.checkAuto()) : (Laya.timer.clearAll(this.checkAuto),
@@ -8878,7 +8879,8 @@
             ),
             this.addChild(this.m_view_Lv),
             this.m_img_Clip.rotation = s % 2 == 0 ? Math.randRange(-20, 5) : Math.randRange(5, 20)
-        
+        console.log('Auto Shop Free')
+            this.m_btn_Free.visible && this.onClickFree();
         }
         onClickFree() {
             N.cat.reqCreate(this.dataSource, !1, !0).then(()=>{
