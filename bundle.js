@@ -6795,12 +6795,8 @@
                                     Laya.timer.clear(this, this.checkShowRandomEvent),
                                     u(T, {
                                         params: [e]
-                                    }).then(e=>{
-                                            e.type != o.No && e.type != o.None || T.ChainFlag || S.reqGetRandomEventAward(De.close),
-                                            Laya.timer.loop(5e3, this, this.checkShowRandomEvent)
-                                        )
-                                    }
-                                    ),
+                                    }),
+                                    Laya.timer.loop(5e3, this, this.checkShowRandomEvent),
                                 this.doRandomSpineAni(),
                                 Laya.timer.once(1e4, this, ()=>{
                                     me(Tt, {
