@@ -6796,10 +6796,8 @@
                                     u(T, {
                                         params: [e]
                                     }).then(e=>{
-                                        e.wait().then(e=>{
                                             e.type != o.No && e.type != o.None || T.ChainFlag || S.reqGetRandomEventAward(De.close),
                                             Laya.timer.loop(5e3, this, this.checkShowRandomEvent)
-                                        }
                                         )
                                     }
                                     ),
