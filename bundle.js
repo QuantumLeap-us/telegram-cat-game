@@ -8151,14 +8151,15 @@
         }
         popDisconnectMsg(e) {
             b.reconnectcount = 0,
-            _e({
-                button: i.Yes,
-                msg: f(167),
-                hideClose: !0
-            }).then(e=>{
-                this.reconnect()
-            }
-            )
+            this.reconnect()
+            // _e({
+            //     button: i.Yes,
+            //     msg: f(167),
+            //     hideClose: !0
+            // }).then(e=>{
+            //     this.reconnect()
+            // }
+            // )
         }
     }
     window.sendCommand = function(t) {
