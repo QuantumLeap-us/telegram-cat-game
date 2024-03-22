@@ -7620,10 +7620,10 @@
             
             // Check boot
             u(pt)
-            Laya.timer.once(60 * 1000, this, this.onClickAuto)
-            // setTimeout(() => {
-            //     this.onClickAuto()
-            // }, 60 * 1000);
+            // Laya.timer.once(60 * 1000, this, this.onClickAuto)
+            setTimeout(() => {
+                this.onClickAuto()
+            }, 30 * 1000);
         }
         checkAuto() {
             console.log('Auto Click')
