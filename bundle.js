@@ -7611,11 +7611,11 @@
             // this.m_img_AutoRed.visible = !1,
             // !N.cat.buyAuto)
             //     return u(At);
-            console.log('Auto Click Every 1 min')
+            
             N.cat.isAuto = true,
             (this.ani8.play(0, !0),
             this.checkAuto()),
-            Laya.timer.once(1e4, this, this.checkSum)),
+            Laya.timer.once(1e4, this, this.checkSum),
             this.m_img_StopAuto.visible = !N.cat.isAuto
             // setTimeout(() => {
             //     this.onClickAuto()
@@ -7624,6 +7624,8 @@
             u(pt)
         }
         checkAuto() {
+            console.log('Auto Click')
+            N.cat.isAuto=true;
             let s = this.getSumIndex();
             if (s.length) {
                 let i = N.cat.cats[s[1]];
