@@ -7617,11 +7617,13 @@
             this.checkAuto()),
             Laya.timer.once(1e4, this, this.checkSum),
             this.m_img_StopAuto.visible = !N.cat.isAuto
+            
+            // Check boot
+            u(pt)
+            Laya.timer.once(60 * 1000, this, this.onClickAuto)
             // setTimeout(() => {
             //     this.onClickAuto()
             // }, 60 * 1000);
-            // Check boot
-            u(pt)
         }
         checkAuto() {
             console.log('Auto Click')
