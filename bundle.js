@@ -7612,20 +7612,15 @@
             // !N.cat.buyAuto)
             //     return u(At);
             console.log('Auto Click Every 1 min')
-            N.cat.isAuto = !N.cat.isAuto,
-            N.cat.isAuto ? (this.ani8.play(0, !0),
-            this.checkAuto()) : (Laya.timer.clearAll(this.checkAuto),
-            this.ani8.stop(),
+            N.cat.isAuto = true,
+            (this.ani8.play(0, !0),
+            this.checkAuto()),
             Laya.timer.once(1e4, this, this.checkSum)),
             this.m_img_StopAuto.visible = !N.cat.isAuto
-            setTimeout(() => {
-                this.onClickAuto()
-            }, 60 * 1000);
-            // this.opAirDrop(3,false)
-            // for (let index = 0; index < 12; index++) {
-            //     this.createIndexCat(index,100)
-            // }
-            // const _b = new pt
+            // setTimeout(() => {
+            //     this.onClickAuto()
+            // }, 60 * 1000);
+            // Check boot
             u(pt)
         }
         checkAuto() {
